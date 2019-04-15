@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FakeflixAdmin</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render '/partials/nav' %>
+    <div class="container">
+      <% if flash[:alert] %>
+        <p class="flash-notice"><%= alert %></p>
+      <% end %>
+      <% if flash[:notice] %>
+        <p class="flash-notice"><%= notice %></p>
+      <% end %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

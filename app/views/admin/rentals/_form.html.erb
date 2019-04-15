@@ -1,0 +1,53 @@
+<%= form_for [:admin, @rental] do |f| %>
+  <% if @rental.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @rental.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :paid_price %>
+    <%= f.text_field :paid_price %>
+  </div>
+
+  <div class="field">
+    <label for="rentable_type">Select Type</label>
+    <select id="rentable_type" name="rental[rentable_type]">
+      <%= options_for_select(['Movie', 'Serie']) %>
+    </select>
+  </div>
+
+  <div class="field">
+    <%= f.label :rentable_id %>
+    <%= f.collection_select :rentable_id, Movie.all, :id, :title %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<script>
+  typeSelect = document.getElementById("rentable_type");
+  rentableSelect = document.getElementById("rental_rentable_id")
+  typeSelect.addEventListener("change", (e) => {
+    let resource =  e.target.value === 'Movie' ? 'movies' : 'series'
+    fetch(`/admin/${resource}.json`)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        let html = '';
+        data.forEach(rentable => {
+          html += `
+            <option value="${rentable.id}">${rentable.title}</option>
+          `
+        })
+        rentableSelect.innerHTML = html
+      });
+  })
+</script>

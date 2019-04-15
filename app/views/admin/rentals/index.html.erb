@@ -1,0 +1,30 @@
+<div>
+  <h2>List rentals</h2>
+  <%= link_to 'New rental', new_admin_rental_path %>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Precio</th>
+      <th>Type</th>
+      <th>Rentable</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @rentals.each do |rental|%>
+        <tr>
+          <td><%= rental.id %></td>
+          <td><%= rental.paid_price %></td>
+          <td><%= rental.rentable_type %></td>
+          <td><%= rental.rentable.title %></td>
+          <td>
+            <%= link_to 'Edit', edit_admin_rental_path(rental) %>
+            <%= link_to 'Destroy', admin_rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
+          </td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>

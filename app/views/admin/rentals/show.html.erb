@@ -1,0 +1,6 @@
+<h2>Rental #<%= @rental.id %></h2>
+<div>
+  <p><b>Rentable:</b> <%= @rental.rentable.title %></p>
+  <p><b>Price:</b> <%= @rental.paid_price %></p>
+</div>
+<%= link_to 'Back', admin_rentals_path %>

@@ -1,0 +1,10 @@
+<h2><%= @movie.title %></h2>
+<div>
+  <p><b>Description:</b> <%= @movie.description %></p>
+  <p><b>Rating:</b> <%= @movie.rating %></p>
+  <p><b>Duration:</b> <%= @movie.duration %></p>
+  <p><b>Price:</b> <%= @movie.price %></p>
+  <p><b>Status:</b> <%= @movie.status %></p>
+  <p><b>Progress:</b> <%= @movie.progress %></p>
+</div>
+<%= link_to 'Back', admin_movies_path %>

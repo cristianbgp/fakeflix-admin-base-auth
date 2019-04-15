@@ -1,0 +1,10 @@
+<h2><%= @serie.title %></h2>
+
+<div>
+  <p><b>Description:</b> <%= @serie.description %></p>
+  <p><b>Rating:</b> <%= @serie.rating %></p>
+  <p><b>Price:</b> <%= @serie.price %></p>
+  <p><b>Status:</b> <%= @serie.status %></p>
+</div>
+
+<%= link_to 'Back', admin_series_index_path %>
