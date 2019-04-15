@@ -3,7 +3,12 @@
     <div>
       <a href="/admin">Fakeflix</a>
     </div>
-    <div>
+    <ul>
+      <%= link_to "Movies", admin_movies_path %>
+      <%= link_to "Series", admin_series_index_path %>
+      <%= link_to "Rentals", admin_rentals_path %>
+    </ul>
+    <div class ="user-nav">
       <% if current_user %>
         Has iniciado sesión como <strong><%= current_user.email %></strong>!
         <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete %>
@@ -11,10 +16,5 @@
         <%= link_to 'Iniciar sesión', new_user_session_path %>
       <% end %>
     </div>
-    <ul>
-      <%= link_to "Movies", admin_movies_path %>
-      <%= link_to "Series", admin_series_index_path %>
-      <%= link_to "Rentals", admin_rentals_path %>
-    </ul>
   </div>
 </nav>
