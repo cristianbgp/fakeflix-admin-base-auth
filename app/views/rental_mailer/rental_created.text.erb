@@ -1,0 +1,15 @@
+# Hi <%= @user.email %>
+
+A new rental has been successfully created. The data of the rental is:
+  - Id
+  - <%= @rental.id %>
+  - Paid Price
+  - <%= @rental.paid_price %>
+  - Type
+  - <%= @rental.rentable_type %>
+  - Title
+  - <%= @rental.rentable.title %>
+
+If you want to read this rental, go to <%= rental_url(@rental) %>
+
+Have a great day!

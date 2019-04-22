@@ -24,6 +24,7 @@ class RentalsController < ApplicationController
     authorize(Rental)
     @rental = Rental.new(rental_params)
     if @rental.save
+      RentalMailer.with(user: current_user, rental: @rental).rental_created.deliver_later
       redirect_to rental_path(@rental), notice: 'Serie was successfully created.'
     else
       render :new

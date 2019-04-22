@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   devise :omniauthable, omniauth_providers: %i[facebook github instagram]
+  after_create :send_registration_mail
 
   def self.from_omniauth(auth)
     if auth.info.email == nil && auth.provider == "instagram"
@@ -16,6 +17,10 @@ class User < ApplicationRecord
     end
     provider = Provider.find_or_create_by(name: auth.provider, uid: auth.uid, user_id: user.id)
     user
+  end
+  
+  def send_registration_mail
+    UserMailer.with(user: self).user_created.deliver_later
   end
 
   def regular?

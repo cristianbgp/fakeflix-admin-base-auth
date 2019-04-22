@@ -15,7 +15,7 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def create?
-    user.admin?
+    user.admin? || user.regular?
   end
 
   def update?
