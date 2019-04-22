@@ -1,7 +1,8 @@
-class Admin::SeriesController < ApplicationController
+class SeriesController < ApplicationController
   before_action :set_serie, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize(Serie)
     @series = Serie.all
     respond_to do |format|
       format.html { render :index }
@@ -10,37 +11,43 @@ class Admin::SeriesController < ApplicationController
   end
 
   def new
+    authorize(Serie)
     @serie = Serie.new
   end
 
   def edit
+    authorize(Serie)
   end
   
   def show
+    authorize(Serie)
   end
 
   
   def create
+    authorize(Serie)
     @serie = Serie.new(serie_params)
     if @serie.save
-      redirect_to admin_series_path(@serie), notice: 'Serie was successfully created.'
+      redirect_to series_path(@serie), notice: 'Serie was successfully created.'
     else
       render :new
     end
   end
 
   def update
+    authorize(Serie)
     @serie = Serie.find(params[:id])
     if @serie.update(serie_params)
-      redirect_to admin_series_path(@serie), notice: 'Serie was successfully updated.'
+      redirect_to series_path(@serie), notice: 'Serie was successfully updated.'
     else
       render :edit
     end
   end
 
   def destroy
+    authorize(Serie)
     @serie.destroy
-    redirect_to admin_series_index_path, notice: 'Serie was successfully destroyed.'
+    redirect_to series_index_path, notice: 'Serie was successfully destroyed.'
   end
 
   private

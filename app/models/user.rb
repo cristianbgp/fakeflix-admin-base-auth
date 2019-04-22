@@ -17,4 +17,12 @@ class User < ApplicationRecord
     provider = Provider.find_or_create_by(name: auth.provider, uid: auth.uid, user_id: user.id)
     user
   end
+
+  def regular?
+    self.role == "regular"
+  end
+
+  def admin?
+    self.role == "admin"
+  end
 end

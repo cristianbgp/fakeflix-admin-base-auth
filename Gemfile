@@ -60,3 +60,5 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'omniauth-instagram'
+
+gem "pundit"

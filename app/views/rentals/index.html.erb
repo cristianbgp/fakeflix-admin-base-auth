@@ -1,6 +1,6 @@
 <div>
   <h2>List rentals</h2>
-  <%= link_to 'New rental', new_admin_rental_path %>
+  <%= link_to 'New rental', new_rental_path %>
 </div>
 
 <table>
@@ -21,8 +21,8 @@
           <td><%= rental.rentable_type %></td>
           <td><%= rental.rentable.title %></td>
           <td>
-            <%= link_to 'Edit', edit_admin_rental_path(rental) %>
-            <%= link_to 'Destroy', admin_rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_rental_path(rental) %>
+            <%= link_to 'Destroy', rental_path(rental), method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
       <% end %>

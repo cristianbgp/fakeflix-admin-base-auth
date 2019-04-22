@@ -1,6 +1,6 @@
 <div>
   <h2>List series</h2>
-  <%= link_to 'New serie', new_admin_series_path %>
+  <%= link_to 'New serie', new_series_path %>
 </div>
 
 <table>
@@ -23,10 +23,10 @@
           <td><%= serie.rating %></td>
           <td><%= serie.price %></td>
           <td><%= serie.status %></td>
-          <td><%= link_to 'Show', admin_series_path(serie) %></td>
+          <td><%= link_to 'Show', series_path(serie) %></td>
           <td>
-            <%= link_to 'Edit', edit_admin_series_path(serie) %>
-            <%= link_to 'Destroy', admin_series_path(serie), method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Edit', edit_series_path(serie) %>
+            <%= link_to 'Destroy', series_path(serie), method: :delete, data: { confirm: 'Are you sure?' } %>
           </td>
         </tr>
       <% end %>
