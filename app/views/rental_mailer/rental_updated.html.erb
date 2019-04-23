@@ -1,0 +1,18 @@
+<h1>Hi <%= @user.email %></h1>
+<p>
+  A rental has been successfully updated. The data of the rental is:
+  <dl>
+    <dt>Id</dt>
+    <dd><%= @rental.id %></dd>
+    <dt>Paid Price</dt>
+    <dd><%= @rental.paid_price %></dd>
+    <dt>Type</dt>
+    <dd><%= @rental.rentable_type %></dd>
+    <dt>Title</dt>
+    <dd><%= @rental.rentable.title %></dd>
+  </dl>
+</p>
+<p>
+  If you want to read this rental, go to <%= rental_url(@rental) %>
+</p>
+<p>Have a great day!</p>

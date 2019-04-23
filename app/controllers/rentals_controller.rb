@@ -35,6 +35,7 @@ class RentalsController < ApplicationController
     authorize(Rental)
     @rental = Rental.find(params[:id])
     if @rental.update(rental_params)
+      RentalMailer.with(user: current_user, rental: @rental).rental_updated.deliver_later
       redirect_to rental_path(@rental), notice: 'Serie was successfully updated.'
     else
       render :edit
@@ -43,6 +44,7 @@ class RentalsController < ApplicationController
 
   def destroy
     authorize(Rental)
+    RentalMailer.with(user: current_user, rental: @rental).rental_deleted.deliver_now
     @rental.destroy
     redirect_to rentals_path, notice: 'Serie was successfully destroyed.'
   end

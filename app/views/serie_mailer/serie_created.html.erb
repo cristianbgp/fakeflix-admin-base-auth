@@ -1,0 +1,16 @@
+<h1>Hi <%= @user.email %></h1>
+<p>
+  A new serie has been successfully created. The data of the serie is:
+  <dl>
+    <dt>Title</dt>
+    <dd><%= @serie.title %></dd>
+    <dt>Description</dt>
+    <dd><%= @serie.description %></dd>
+    <dt>Price</dt>
+    <dd><%= @serie.price %></dd>
+  </dl>
+</p>
+<p>
+  If you want to read this serie, go to <%= serie_url(@serie) %>
+</p>
+<p>Have a great day!</p>

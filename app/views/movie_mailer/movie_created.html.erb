@@ -1,0 +1,18 @@
+<h1>Hi <%= @user.email %></h1>
+<p>
+  A new movie has been successfully created. The data of the movie is:
+  <dl>
+    <dt>Title</dt>
+    <dd><%= @movie.title %></dd>
+    <dt>Description</dt>
+    <dd><%= @movie.description %></dd>
+    <dt>Price</dt>
+    <dd><%= @movie.price %></dd>
+    <dt>Duration</dt>
+    <dd><%= @movie.duration %></dd>
+  </dl>
+</p>
+<p>
+  If you want to read this movie, go to <%= movie_url(@movie) %>
+</p>
+<p>Have a great day!</p>

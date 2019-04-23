@@ -1,0 +1,15 @@
+# Hi <%= @user.email %>
+
+A movie has been successfully created. The data of the movie is:
+  - Title
+  - <%= @movie.title %>
+  - Description
+  - <%= @movie.description %>
+  - Price
+  - <%= @movie.price %>
+  - Duration
+  - <%= @movie.duration %>
+
+If you want to read this movie, go to <%= movie_url(@movie) %>
+
+Have a great day!

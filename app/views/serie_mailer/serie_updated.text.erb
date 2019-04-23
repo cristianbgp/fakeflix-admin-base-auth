@@ -1,0 +1,13 @@
+# Hi <%= @user.email %>
+
+A serie has been successfully created. The data of the serie is:
+  - Title
+  - <%= @serie.title %>
+  - Description
+  - <%= @serie.description %>
+  - Price
+  - <%= @serie.price %>
+
+If you want to read this serie, go to <%= series_url(@serie) %>
+
+Have a great day!
